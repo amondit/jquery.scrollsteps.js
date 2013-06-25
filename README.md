@@ -1,8 +1,12 @@
 # jquery.stepscroll.js
 
-jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.)
+Lightweight jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.).
 
-## Why do you need it?
+Especially useful if you want to manually implement a lightweight slider (ie. not want to use the dozens of already available jQuery sliders that do everything, take ages to configure correctly and bloat your site).
+
+Bottomline is: StepScroll.js + CSS (3D) Transforms = very fast, lightweight, simple & powefull slider!
+
+## About it.
 
 Sometimes you need to handle mousewheel events to scroll between elements using steps for each mousewheel finger actions, such as (but not limited to):
 
@@ -11,20 +15,20 @@ Sometimes you need to handle mousewheel events to scroll between elements using 
 
 However, there are many technical difficulties implementing that due to the many mousewheel types that exist :
 
-- "Click" wheels, that trigger a mouse event for every "click" made, and stops as soon as the finger stopped moving.
-- "Inertia" wheels (and others magic trackpads), that gets energy along the finger movement, and may continue to scroll as long as this inertia energy is not depleted (while the finger is away), and triggering scroll events constantly along the way.
-- Also, there are wheels that are a someway inbetween, such as "soft" click wheels, and not-inertia trackpad zones...
+- "Click" wheels, that trigger a mouse event for every "click" made, and stops as soon as your finger stopps moving.
+- "Inertia" wheels (and others magic trackpads), that gets energy along the finger movement, and may continue to scroll as long as this inertia energy is not depleted (while the finger is away), triggering scroll events constantly along the way.
+- Also, there are wheels that are a someway inbetween, such as "soft" click wheels, and inertia-less trackpad zones...
 
 ### What the problem is:
 
 Handling these many wheel types is not trivial, as solutions for some wheel types may cause issues with others:
-- You may set a minimum delay between mousescroll events (trigger), or inbetween events (debounce). This will work for click types, given you set a high enough delay between events.
-- However, that will not work with inertia wheels, as the user needs to explicitely stops the inertia scrolling with his finger, then waits for the debounce delay... not very user friendly.
+- You may set a minimum delay between mousescroll events (trigger), or inbetween events (debouncing). This will work for click types, given you set a high enough delay between events.
+- However, that will not work with inertia wheels, as the scroll events continues to get triggered after the finger movement, preventing the debouncing to occur and/or getting undesired scrolls to be triggered...
 - Also, it causes usability issues if you move the wheel slowly, causing misfires or desired scrolls that are not registered...
 
 ### This is causes frustration to the user, and needs to be fixed!
 
-Hopefully, the jQuery.StepScroll.js plugin exists, and takes care of the problem.
+Thank god, the jQuery.StepScroll.js plugin exists, and takes care of the problem.
 
 It uses a combination of debounced (heading and trailing) and undebounced (with flags) mousewheel events, to account for most scrolling scenarii and trigger events accordingly.
 
