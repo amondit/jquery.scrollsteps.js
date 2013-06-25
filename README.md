@@ -2,7 +2,7 @@
 
 jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.)
 
-## Why do I need it?
+## Why do you need it?
 
 Sometimes you need to handle mousewheel events to scroll between elements using steps for each mousewheel finger actions, such as (but not limited to):
 
