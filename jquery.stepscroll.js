@@ -1,3 +1,11 @@
+/*! Copyright (c) 2013 Arnaud Mondit (http://naebula.com)
+ * Licensed under the MIT License (LICENSE.txt).
+ *
+ * Version: 1.0.0
+ *
+ * Requires: jQuery 1.2.2+, jquery.mousescroll.js, debounce function (jquery plugin or underscore/lodash)
+ */
+
 (function ($) {
     $.fn.stepscroll = function (options) {
 
