@@ -44,13 +44,13 @@ It uses a combination of debounced (heading and trailing) and undebounced (with 
 
 Simple use, with default options: 
 
-````
+````javascript
   $(target).stepscroll({
     scrollCallback: yourFunction // callback to your function to call at each step scrolled
   });
 ````
 You can also configure additional internal values, here is the list of complete parameters:
-````
+````javascript
     scrollDuration: 2000, // Absolute min delay between two scroll triggered (callback calls),
     scrollCallback: null, //callback for scroll event
     //Internal values tweaked for best support for all wheel types,
