@@ -1,6 +1,6 @@
 # jquery.stepscroll.js
 
-Lightweight jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.).
+Lightweight (1.1KB) jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.).
 
 Especially useful if you want to manually implement a lightweight slider (ie. not want to use the dozens of already available jQuery sliders that do everything, take ages to configure correctly and bloat your site).
 
@@ -42,7 +42,22 @@ It uses a combination of debounced (heading and trailing) and undebounced (with 
 
 ### How to use
 
-//TODO
+Simple use, with default options: 
+
+````
+  $(target).stepscroll({
+    scrollCallback: yourFunction // callback to your function to call at each step scrolled
+  });
+````
+You can also configure additional internal values, here is the list of complete parameters:
+````
+    scrollDuration: 2000, // Absolute min delay between two scroll triggered (callback calls),
+    scrollCallback: null, //callback for scroll event
+    //Internal values tweaked for best support for all wheel types,
+    // tweak to your preference if you don't like default values
+    startDebounceDelay: 300, //delay for heading debounced event
+    endDebounceDelay: 150 //delay for trailing debounced event
+````
 
 ## See it in action
 
