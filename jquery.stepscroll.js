@@ -48,7 +48,7 @@
 				//Scroll Down
 				down(e);
 			}
-			dir = deltaX > 0 ? 'left' : 'right';
+			dir = deltaX < 0 ? 'left' : 'right';
 			if (dir == 'left') {
 				//Scroll left
 				left(e);
