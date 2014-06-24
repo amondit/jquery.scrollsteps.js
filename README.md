@@ -6,7 +6,7 @@ Especially useful if you want to manually implement a lightweight slider (ie. no
 
 Bottomline is: StepScroll.js + CSS (3D) Transforms = very fast, lightweight, simple & powefull slider!
 
-## About it.
+## Why
 
 Sometimes you need to handle mousewheel events to scroll between elements using steps for each mousewheel finger actions, such as (but not limited to):
 
@@ -37,8 +37,9 @@ It uses a combination of debounced (heading and trailing) and undebounced (with 
 
 ### Requirements
 
-- The [jquery.mousewheel](https://github.com/brandonaaron/jquery-mousewheel/) plugin by Brandon Aaron (latest version with deltaX and deltaY values).
-- A jQuery debouncing function, either via [underscore.js](http://underscorejs.org/) (or [Lo-dash](http://lodash.com/)), or Ben Alman's [debounce/throttle](http://benalman.com/projects/jquery-throttle-debounce-plugin/) plugin.
+- [jQuery](http://jquery.com), obviously
+- The [jquery.mousewheel](https://github.com/brandonaaron/jquery-mousewheel/) plugin by Brandon Aaron (latest version with deltaX and deltaY values embedded in the event object).
+
 
 ### How to use
 
@@ -46,17 +47,18 @@ Simple use, with default options:
 
 ````javascript
   $(target).stepscroll({
-    scrollCallback: yourFunction // callback to your function to call at each step scrolled
+    up: yourUpFunction // callback for the UP step scroll event
+    down: yourUpFunction // callback for the DOWN step scroll event
+    left: yourUpFunction // callback for the LEFT step scroll event
+    right: yourUpFunction // callback for the RIGHT step scroll event
   });
 ````
 You can also configure additional internal values, here is the list of complete parameters:
 ````javascript
-    scrollDuration: 2000, // Absolute min delay between two scroll triggered (callback calls),
-    scrollCallback: null, //callback for scroll event
+    transitionDuration: 2000, // Duration of the main transition event, for example page transitions in a fullPage scroller
     //Internal values tweaked for best support for all wheel types,
     // tweak to your preference if you don't like default values
-    startDebounceDelay: 300, //delay for heading debounced event
-    endDebounceDelay: 150 //delay for trailing debounced event
+    quietPeriodBetweenTwoScrollEvents: 400, // Increases responsiveness, minimum delay between two quiet periods (no scroll events) to force the transition event if the transitionDuration is not completed.
 ````
 
 ## See it in action
@@ -74,5 +76,5 @@ This has been only tested by me so far, using the hardware at hand and my use ca
 
 This is licenced using the MIT Licence.
 
-Copyright (c) 2013 Arnaud Mondit
+Copyright (c) 2014 Arnaud Mondit
 
