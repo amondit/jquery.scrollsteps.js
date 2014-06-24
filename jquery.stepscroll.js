@@ -1,77 +1,66 @@
-/*! Copyright (c) 2013 Arnaud Mondit (http://naebula.com)
- * Licensed under the MIT License (LICENSE.txt).
- *
- * Version: 1.0.0
- *
- * Requires: jQuery 1.2.2+, jquery.mousescroll.js, debounce function (jquery plugin or underscore/lodash)
- */
+/*! Copyright (c) 2014 Arnaud Mondit (http://brindillesnomades.com)
+* Licensed under the MIT License (LICENSE.txt).
+*
+* Version: 2.0.0
+*
+* Requires: jQuery 1.2.2+, jquery.mousescroll.js
+*/
 
 (function ($) {
-    $.fn.stepscroll = function (options) {
+	$.fn.stepscroll = function (options) {
 
-        var defauts = {
-            scrollDuration: 2000, // Absolute min delay between two scroll triggered (callback calls),
-            scrollCallback: null, //callback for scroll event
-            //Below, internal values tweaked for best support for all wheel types, tweak to your preference if you don't like default values
-            startDebounceDelay: 300, //delay for heading debounced event
-            endDebounceDelay: 150 //delay for trailing debounced event
-        };
+		var defauts = {
+			transitionDuration: 2000, // Duration of the main transition event,
+			up: null, //callback for up event
+			down: null, //callback for down event
+			left: null, //callback for left event
+			right: null, //callback for right event
+			
+			//Below, internal values tweaked for best support for all wheel types, tweak to your preference if you don't like default values
+			quietPeriodBetweenTwoScrollEvents: 400, // Increases responsiveness, minimum delay between two quiet periods (no scroll events) to force the transition event if the transitionDuration is not completed.
+		};
 
-        $.extend(defauts, options);
+		$.extend(defauts, options);
 
-        var scrollInProgress = false;
-        var transitionInProgress = false;
+		function performMouseScroll(e) {
+			var deltaY = e.deltaY;
+			var deltaX = e.deltaX;
+			if (deltaX == undefined || deltaY == undefined) {
+				console.log("Could not identify delta of scrolling, is the jQuery Mousescroll plugin present?");
+				return;
+			}
+			var timeNow = new Date().getTime();
+			
+			if((timeNow - lastTransitionTime < transitionDuration)){
+				if((timeNow - lastScrollEventTime < quietPeriodBetweenTwoScrollEvents)){
+					e.preventDefault();
+					lastScrollEventTime = timeNow;
+					return;
+				}
+			}
+			lastScrollEventTime = timeNow;
+			e.preventDefault();
+			var dir = deltaY > 0 ? 'up' : 'down';
+			if (dir == 'up') {
+				//Scroll Up
+				up(e);
+			} else {
+				//Scroll Down
+				down(e);
+			}
+			dir = deltaX > 0 ? 'left' : 'right';
+			if (dir == 'left') {
+				//Scroll left
+				left(e);
+			} else {
+				//Scroll right
+				right(e);
+			}
+			lastTransitionTime = timeNow;
+		}
 
-        function startMouseScroll(e, delta, deltaX, deltaY) {
-            scrollInProgress = false;
-            performMouseScroll(e, delta, deltaX, deltaY);
-        }
-
-        function constantMouseScroll(e, delta, deltaX, deltaY) {
-            if (scrollInProgress && !transitionInProgress) {
-                performMouseScroll(e, delta, deltaX, deltaY);
-                scrollInProgress = false;
-            }
-        }
-
-        function endMouseScroll(e, delta, deltaX, deltaY) {
-            if (!transitionInProgress) {
-                scrollInProgress = true;
-            }
-        }
-
-        function performMouseScroll(e, delta, deltaX, deltaY) {
-            transitionInProgress = true;
-            setTimeout(function () {
-                transitionInProgress = false;
-            }, defauts["scrollDuration"]);
-            if (defauts["scrollCallback"]) {
-                defauts["scrollCallback"](e, delta, deltaX, deltaY);
-            }
-        }
-
-        return this.each(function () {
-            var _startMouseScroll = undefined;
-            var _endMouseScroll = undefined;
-
-            //using underscore (or Lo-dash), alternate syntax
-            if (typeof _ != "undefined" && _.debounce) {
-                _startMouseScroll = _.debounce(startMouseScroll, defauts["startDebounceDelay"], true);
-                _endMouseScroll = _.debounce(endMouseScroll, defauts["endDebounceDelay"], false);
-            } else {
-                //using debounce plugin
-                if ($.debounce) {
-                    _startMouseScroll = $.debounce(defauts["startDebounceDelay"], true, startMouseScroll);
-                    _endMouseScroll = $.debounce(defauts["endDebounceDelay"], false, endMouseScroll);
-                } else {
-                    console.error("jQuery.StepScroll.js: Missing debounce function !");
-                    return false;
-                }
-            }
-
-            $(this).on("mousewheel", _startMouseScroll);
-            $(this).on("mousewheel", constantMouseScroll);
-            $(this).on("mousewheel", _endMouseScroll);
-        });
-    };
+		return this.each(function () {
+			$(this).on("mousewheel", performMouseScroll);
+		});
+	};
 })(jQuery);
