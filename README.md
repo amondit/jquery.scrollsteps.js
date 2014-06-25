@@ -63,9 +63,7 @@ You can also configure additional internal values, here is the list of complete 
 
 ## See it in action
 
-Using the github example page:
-
-//TODO
+[Using the github example page](http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js.demo.html).
 
 ## Known issues
 
