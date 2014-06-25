@@ -5,8 +5,7 @@
 	<title>JQuery Stepscroll Demo Page</title>
 	<!--<link rel="stylesheet" href="style.css">-->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="http://brandonaaron.github.io/jquery-mousewheel/jquery.mousewheel.js"></script>
-	<script type="text/javascript" src="http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js"></script>
+	<script type="text/javascript" src="http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll-full-min.js"></script>
 	<script type="text/javascript">
 		
 		/* Write JavaScript here */
@@ -89,6 +88,8 @@ function nextSubPage(e){
 		currentSubPageIndex++;
 		pageScroll(".subScrollPage", currentSubPageIndex * subPageHeight);
 		e.stopPropagation();
+	}else{
+		next(e);
 	}
 }
 function prevSubPage(e){
@@ -96,6 +97,8 @@ function prevSubPage(e){
 		currentSubPageIndex--;
 		pageScroll(".subScrollPage", currentSubPageIndex * subPageHeight);
 		e.stopPropagation();
+	}else{
+		prev(e);
 	}
 }
 
