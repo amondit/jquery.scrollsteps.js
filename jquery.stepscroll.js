@@ -1,7 +1,7 @@
 /*! Copyright (c) 2014 Arnaud Mondit (http://brindillesnomades.com)
 * Licensed under the MIT License (LICENSE.txt).
 *
-* Version: 2.0.0
+* Version: 2.0.2
 *
 * Requires: jQuery 1.2.2+, jquery.mousescroll.js
 */
@@ -40,21 +40,25 @@
 			}
 			lastScrollEventTime = timeNow;
 			e.preventDefault();
-			var dir = deltaY > 0 ? 'up' : 'down';
-			if (dir == 'up') {
-				//Scroll Up
-				defauts["up"](e);
-			} else {
-				//Scroll Down
-				defauts["down"](e);
+			if(deltaY !=0) {
+				var dirY = deltaY > 0 ? 'up' : 'down';
+				if (dirY == 'up') {
+					//Scroll Up
+					defauts["up"](e);
+				} else {
+					//Scroll Down
+					defauts["down"](e);
+				}
 			}
-			dir = deltaX < 0 ? 'left' : 'right';
-			if (dir == 'left') {
-				//Scroll left
-				defauts["left"](e);
-			} else {
-				//Scroll right
-				defauts["right"](e);
+			if(deltaX !=0) {
+				var dirX = deltaX < 0 ? 'left' : 'right';
+				if (dirX == 'left') {
+					//Scroll left
+					defauts["left"](e);
+				} else {
+					//Scroll right
+					defauts["right"](e);
+				}
 			}
 			lastTransitionTime = timeNow;
 		}
