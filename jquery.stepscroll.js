@@ -31,8 +31,8 @@
 			}
 			var timeNow = new Date().getTime();
 			
-			if((timeNow - lastTransitionTime < transitionDuration)){
-				if((timeNow - lastScrollEventTime < quietPeriodBetweenTwoScrollEvents)){
+			if((timeNow - lastTransitionTime < defauts["transitionDuration"])){
+				if((timeNow - lastScrollEventTime < defauts["quietPeriodBetweenTwoScrollEvents"])){
 					e.preventDefault();
 					lastScrollEventTime = timeNow;
 					return;
@@ -43,18 +43,18 @@
 			var dir = deltaY > 0 ? 'up' : 'down';
 			if (dir == 'up') {
 				//Scroll Up
-				up(e);
+				defauts["up"](e);
 			} else {
 				//Scroll Down
-				down(e);
+				defauts["down"](e);
 			}
 			dir = deltaX < 0 ? 'left' : 'right';
 			if (dir == 'left') {
 				//Scroll left
-				left(e);
+				defauts["left"](e);
 			} else {
 				//Scroll right
-				right(e);
+				defauts["right"](e);
 			}
 			lastTransitionTime = timeNow;
 		}
