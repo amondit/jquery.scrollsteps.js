@@ -1,7 +1,7 @@
 {
-  "name": "StepScroll",
-  "version": "2.0.2",
-  "title": "jQuery.StepScroll.js",
+  "name": "scrollsteps",
+  "version": "2.0.3",
+  "title": "jQuery.ScrollSteps.js",
   "author": {
     "name": "Arnaud Mondit",
     "url": "https://github.com/amondit"
@@ -23,12 +23,12 @@
     "event",
     "scroll"
   ],
-  "homepage": "https://github.com/amondit/jquery.stepscroll.js",
+  "homepage": "https://github.com/amondit/jquery.scrollsteps.js",
   "files": [
-    "jquery.stepscroll.js",
-    "jquery.stepscroll-min.js",
-    "jquery.stepscroll-min-full.js",
+    "jquery.scrollsteps.js",
+    "jquery.scrollsteps-min.js",
+    "jquery.scrollsteps-min-full.js",
     "README.md"
   ],
-  "demo": "http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js.demo.html"
+  "demo": "http://amondit.github.io/jquery.scrollsteps.js/jquery.scrollsteps.js.demo.html"
 }
