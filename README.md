@@ -1,4 +1,4 @@
-# jquery.stepscroll.js
+# jquery.scrollsteps.js
 
 Lightweight (&lt;1KB) jQuery plugin to handle mousewheel scrolling by steps, handling many wheel types (click, inertia, etc.).
 
@@ -8,7 +8,7 @@ Mouse scrolling triggers a lot of scrolling events, especially with the new "mag
 
 So, if you are trying to setup a page design where the user should be able to scroll through elements "one at a time", this can cause a lot of problems, especially frustration as this easily can render the scrolling not so fluid.
 
-This jQuery plugin solves this problem, and provides callbacks for each scrolling "step" in all directions ([demo](http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js.demo.html)).
+This jQuery plugin solves this problem, and provides callbacks for each scrolling "step" in all directions ([demo](http://amondit.github.io/jquery.scrollsteps.js/jquery.scrollsteps.js.demo.html)).
 
 
 ## Usage
@@ -16,7 +16,7 @@ This jQuery plugin solves this problem, and provides callbacks for each scrollin
 Simple use, with default options: 
 
 ````javascript
-  $(target).stepscroll({
+  $(target).scrollsteps({
     up: yourUpFunction // callback for the UP step scroll event, all the events are of course optional
     down: yourUpFunction // callback for the DOWN step scroll event
     left: yourUpFunction // callback for the LEFT step scroll event
@@ -38,7 +38,7 @@ Please note, the jquery.mousewheel.js plugin is included in the Full version!
 
 ## See it in action
 
-[Using the github example page](http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js.demo.html).
+[Using the github example page](http://amondit.github.io/jquery.scrollsteps.js/jquery.scrollsteps.js.demo.html).
 
 ## Known issues
 
