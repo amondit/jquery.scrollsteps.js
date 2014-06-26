@@ -1,0 +1,34 @@
+{
+  "name": "jQuery StepScroll",
+  "version": "2.0.2",
+  "title": "jQuery.StepScroll.js",
+  "author": {
+    "name": "Arnaud Mondit",
+    "url": "https://github.com/amondit"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.2.2",
+    "jquery.mousewheel.js": ">=3.0.0"
+  },
+  "description": "A jQuery plugin to filter through mouse scroll events, to only trigger major steps.",
+  "keywords": [
+    "mousewheel",
+    "mouse",
+    "event",
+    "scroll"
+  ],
+  "homepage": "https://github.com/amondit/jquery.stepscroll.js",
+  "files": [
+    "jquery.stepscroll.js",
+    "jquery.stepscroll-min.js",
+    "jquery.stepscroll-min-full.js",
+    "README.md"
+  ],
+  "demo": "http://amondit.github.io/jquery.stepscroll.js/jquery.stepscroll.js.demo.html"
+}
