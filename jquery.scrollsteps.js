@@ -1,13 +1,13 @@
 /*! Copyright (c) 2014 Arnaud Mondit (http://brindillesnomades.com)
 * Licensed under the MIT License (LICENSE.txt).
 *
-* Version: 2.0.2
+* Version: 2.0.3
 *
 * Requires: jQuery 1.2.2+, jquery.mousescroll.js
 */
 
 (function ($) {
-	$.fn.stepscroll = function (options) {
+	$.fn.scrollsteps = function (options) {
 
 		var defauts = {
 			transitionDuration: 2000, // Duration of the main transition event,
