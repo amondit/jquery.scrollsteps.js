@@ -1,11 +1,11 @@
 /*! Copyright (c) 2014 Arnaud Mondit (http://brindillesnomades.com)
 * Licensed under the MIT License (LICENSE.txt).
 *
-* Version: 2.0.3
+* Version: 2.0.4
 *
 * Requires: jQuery 1.2.2+
 */
-(function(e){e.fn.scrollsteps=function(t){function r(e){var t=e.deltaY;var r=e.deltaX;if(r==undefined||t==undefined){console.log("Could not identify delta of scrolling, is the jQuery Mousescroll plugin present?");return}var i=(new Date).getTime();if(i-lastTransitionTime<n["transitionDuration"]){if(i-lastScrollEventTime<n["quietPeriodBetweenTwoScrollEvents"]){e.preventDefault();lastScrollEventTime=i;return}}lastScrollEventTime=i;e.preventDefault();if(t!=0){var s=t>0?"up":"down";if(s=="up"){n["up"](e)}else{n["down"](e)}}if(r!=0){var o=r<0?"left":"right";if(o=="left"){n["left"](e)}else{n["right"](e)}}lastTransitionTime=i}var n={transitionDuration:2e3,up:null,down:null,left:null,right:null,quietPeriodBetweenTwoScrollEvents:400};e.extend(n,t);return this.each(function(){e(this).on("mousewheel",r)})}})(jQuery)
+(function(e){e.fn.scrollsteps=function(t){function s(e){var t=e.deltaY;var s=e.deltaX;if(s==undefined||t==undefined){console.log("Could not identify delta of scrolling, is the jQuery Mousescroll plugin present?");return}var o=(new Date).getTime();if(o-n<i["transitionDuration"]){if(o-r<i["quietPeriodBetweenTwoScrollEvents"]){e.preventDefault();r=o;return}}r=o;e.preventDefault();if(t!=0){var u=t>0?"up":"down";if(u=="up"){i["up"](e)}else{i["down"](e)}}if(s!=0){var a=s<0?"left":"right";if(a=="left"){i["left"](e)}else{i["right"](e)}}n=o}var n=0;var r=0;var i={transitionDuration:2e3,up:null,down:null,left:null,right:null,quietPeriodBetweenTwoScrollEvents:400};e.extend(i,t);return this.each(function(){e(this).on("mousewheel",s)})}})(jQuery)
 /*! Copyright (c) 2013 Brandon Aaron (http://brandon.aaron.sh)
  * Licensed under the MIT License (LICENSE.txt).
  *
