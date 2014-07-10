@@ -8,6 +8,9 @@
 
 (function ($) {
 	$.fn.scrollsteps = function (options) {
+		
+		var lastTransitionTime = 0;
+		var lastScrollEventTime = 0;
 
 		var defauts = {
 			transitionDuration: 2000, // Duration of the main transition event,
