@@ -1,7 +1,7 @@
 /*! Copyright (c) 2014 Arnaud Mondit (http://brindillesnomades.com)
 * Licensed under the MIT License (LICENSE.txt).
 *
-* Version: 2.0.3
+* Version: 2.0.4
 *
 * Requires: jQuery 1.2.2+, jquery.mousescroll.js
 */
